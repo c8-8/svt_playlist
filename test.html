@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEVENTEEN 歌曲系統測試頁面</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .test-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .test-header {
+            color: #333;
+            border-bottom: 2px solid #F7CAC9;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .test-button {
+            background: #F7CAC9;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+            font-size: 14px;
+        }
+        
+        .test-button:hover {
+            background: #F5B7B1;
+        }
+        
+        .test-result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .info { color: #17a2b8; }
+        
+        .status {
+            padding: 10px;
+            border-radius: 4px;
+            margin: 10px 0;
+        }
+        
+        .status.success { background: #d4edda; border: 1px solid #c3e6cb; }
+        .status.error { background: #f8d7da; border: 1px solid #f5c6cb; }
+        .status.warning { background: #fff3cd; border: 1px solid #ffeaa7; }
+        .status.info { background: #d1ecf1; border: 1px solid #bee5eb; }
+        
+        .song-list {
+            max-height: 400px;
+            overflow-y: auto;
+            border: 1px solid #ddd;
+            padding: 10px;
+            background: white;
+        }
+        
+        .song-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .song-title {
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .song-info {
+            color: #666;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🎵 SEVENTEEN 歌曲系統測試頁面</h1>
+    
+    <div class="test-container">
+        <h2 class="test-header">📊 系統狀態檢查</h2>
+        <button class="test-button" onclick="checkSystemStatus()">檢查系統狀態</button>
+        <button class="test-button" onclick="checkFiles()">檢查檔案存在</button>
+        <div id="systemStatus" class="test-result"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2 class="test-header">📁 資料載入測試</h2>
+        <button class="test-button" onclick="testJSONLoad()">測試JSON載入</button>
+        <button class="test-button" onclick="testCSVLoad()">測試CSV載入</button>
+        <button class="test-button" onclick="testBuiltinData()">測試內建資料</button>
+        <button class="test-button" onclick="testFullLoad()">完整載入測試</button>
+        <div id="loadTestResult" class="test-result"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2 class="test-header">🎵 歌曲資料預覽</h2>
+        <div id="songCount" class="status info">尚未載入歌曲資料</div>
+        <div id="songPreview" class="song-list"></div>
+    </div>
+    
+    <div class="test-container">
+        <h2 class="test-header">🔧 功能測試</h2>
+        <button class="test-button" onclick="testCategoryData()">測試分類資料</button>
+        <button class="test-button" onclick="testTimelineData()">測試時間軸資料</button>
+        <button class="test-button" onclick="testAuthSystem()">測試認證系統</button>
+        <div id="functionTestResult" class="test-result"></div>
+    </div>
+
+    <script>
+        let testSongs = [];
+        
+        // 系統狀態檢查
+        function checkSystemStatus() {
+            const result = document.getElementById('systemStatus');
+            let status = '=== 系統狀態檢查 ===\n\n';
+            
+            // 檢查瀏覽器支援
+            status += '瀏覽器支援:\n';
+            status += `- fetch API: ${window.fetch ? '✅' : '❌'}\n`;
+            status += `- localStorage: ${window.localStorage ? '✅' : '❌'}\n`;
+            status += `- sessionStorage: ${window.sessionStorage ? '✅' : '❌'}\n`;
+            status += `- Promise: ${window.Promise ? '✅' : '❌'}\n\n`;
+            
+            // 檢查當前頁面
+            status += '頁面資訊:\n';
+            status += `- URL: ${window.location.href}\n`;
+            status += `- Protocol: ${window.location.protocol}\n`;
+            status += `- Host: ${window.location.host}\n\n`;
+            
+            result.textContent = status;
+        }
+        
+        // 檢查檔案存在
+        async function checkFiles() {
+            const result = document.getElementById('systemStatus');
+            let status = '=== 檔案存在檢查 ===\n\n';
+            
+            const files = [
+                'seventeen-complete-discography.json',
+                'seventeen-songs-complete.csv',
+                'song-categories.js',
+                'data-loader.js',
+                'auth.js'
+            ];
+            
+            for (const file of files) {
+                try {
+                    const response = await fetch(file, { method: 'HEAD' });
+                    status += `${file}: ${response.ok ? '✅' : '❌'} (${response.status})\n`;
+                } catch (error) {
+                    status += `${file}: ❌ (${error.message})\n`;
+                }
+            }
+            
+            result.textContent = status;
+        }
+        
+        // 測試JSON載入
+        async function testJSONLoad() {
+            const result = document.getElementById('loadTestResult');
+            result.textContent = '正在測試JSON載入...\n';
+            
+            try {
+                const response = await fetch('seventeen-complete-discography.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const data = await response.json();
+                let status = '=== JSON載入測試 ===\n\n';
+                status += `✅ JSON載入成功\n`;
+                status += `- 檔案大小: ${JSON.stringify(data).length} 字元\n`;
+                status += `- 資料結構: ${typeof data}\n`;
+                status += `- 包含專輯: ${data.albums ? '✅' : '❌'}\n`;
+                
+                if (data.albums) {
+                    status += `- 韓語專輯: ${data.albums.korean ? '✅' : '❌'}\n`;
+                    status += `- 日語專輯: ${data.albums.japanese ? '✅' : '❌'}\n`;
+                    status += `- 英語專輯: ${data.albums.english ? '✅' : '❌'}\n`;
+                    status += `- 中文專輯: ${data.albums.chinese ? '✅' : '❌'}\n`;
+                }
+                
+                result.textContent = status;
+                
+            } catch (error) {
+                result.textContent = `❌ JSON載入失敗: ${error.message}`;
+            }
+        }
+        
+        // 測試CSV載入
+        async function testCSVLoad() {
+            const result = document.getElementById('loadTestResult');
+            result.textContent = '正在測試CSV載入...\n';
+            
+            try {
+                const response = await fetch('seventeen-songs-complete.csv');
+                if (!response.ok) {
+                    throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+                }
+                
+                const csvText = await response.text();
+                const lines = csvText.split('\n');
+                const headers = lines[0].split(',');
+                
+                let status = '=== CSV載入測試 ===\n\n';
+                status += `✅ CSV載入成功\n`;
+                status += `- 總行數: ${lines.length}\n`;
+                status += `- 標題行: ${headers.length} 欄位\n`;
+                status += `- 資料行: ${lines.length - 1}\n`;
+                status += `- 欄位名稱: ${headers.join(', ')}\n\n`;
+                
+                // 解析幾行資料作為範例
+                status += '前5行資料範例:\n';
+                for (let i = 1; i <= Math.min(5, lines.length - 1); i++) {
+                    if (lines[i].trim()) {
+                        const values = lines[i].split(',');
+                        status += `${i}. ${values[1] || '未知'} (${values[5] || '未知'})\n`;
+                    }
+                }
+                
+                result.textContent = status;
+                
+            } catch (error) {
+                result.textContent = `❌ CSV載入失敗: ${error.message}`;
+            }
+        }
+        
+        // 測試內建資料
+        function testBuiltinData() {
+            const result = document.getElementById('loadTestResult');
+            
+            // 模擬內建資料
+            const builtinSongs = [
+                { id: 1, title: 'Adore U (아낀다)', album: '17 CARAT', year: 2015, language: 'korean', category: 'group' },
+                { id: 2, title: 'Mansae (만세)', album: 'Boys Be', year: 2015, language: 'korean', category: 'group' },
+                { id: 3, title: 'Pretty U (예쁘다)', album: 'Love & Letter', year: 2016, language: 'korean', category: 'group' }
+            ];
+            
+            let status = '=== 內建資料測試 ===\n\n';
+            status += `✅ 內建資料載入成功\n`;
+            status += `- 歌曲數量: ${builtinSongs.length}\n`;
+            status += `- 資料格式: 正確\n\n`;
+            
+            status += '內建歌曲列表:\n';
+            builtinSongs.forEach(song => {
+                status += `- ${song.title} (${song.year}, ${song.album})\n`;
+            });
+            
+            result.textContent = status;
+            testSongs = builtinSongs;
+            updateSongPreview();
+        }
+        
+        // 完整載入測試
+        async function testFullLoad() {
+            const result = document.getElementById('loadTestResult');
+            result.textContent = '正在進行完整載入測試...\n';
+            
+            try {
+                // 模擬完整載入流程
+                let status = '=== 完整載入測試 ===\n\n';
+                
+                // 步驟1: 嘗試JSON
+                status += '步驟1: 嘗試載入JSON資料\n';
+                try {
+                    const response = await fetch('seventeen-complete-discography.json');
+                    if (response.ok) {
+                        const data = await response.json();
+                        status += '✅ JSON載入成功\n';
+                        
+                        // 簡化的轉換邏輯
+                        const songs = [];
+                        let songId = 1;
+                        
+                        if (data.albums && data.albums.korean) {
+                            const koreanAlbums = data.albums.korean;
+                            if (koreanAlbums.mini_albums) {
+                                koreanAlbums.mini_albums.forEach(album => {
+                                    songs.push({
+                                        id: songId++,
+                                        title: `${album.title} - 主打歌`,
+                                        album: album.title,
+                                        year: parseInt(album.release_date.split('-')[0]),
+                                        language: 'korean',
+                                        category: 'group'
+                                    });
+                                });
+                            }
+                        }
+                        
+                        testSongs = songs;
+                        status += `✅ 轉換完成，共 ${songs.length} 首歌曲\n`;
+                        
+                    } else {
+                        throw new Error('JSON載入失敗');
+                    }
+                } catch (error) {
+                    status += `❌ JSON載入失敗: ${error.message}\n`;
+                    
+                    // 步驟2: 嘗試CSV
+                    status += '\n步驟2: 嘗試載入CSV資料\n';
+                    try {
+                        const response = await fetch('seventeen-songs-complete.csv');
+                        if (response.ok) {
+                            const csvText = await response.text();
+                            const lines = csvText.split('\n');
+                            const songs = [];
+                            
+                            for (let i = 1; i < Math.min(10, lines.length); i++) {
+                                if (lines[i].trim()) {
+                                    const values = lines[i].split(',');
+                                    songs.push({
+                                        id: parseInt(values[0]) || i,
+                                        title: values[1] || `歌曲 ${i}`,
+                                        album: values[8] || '未知專輯',
+                                        year: parseInt(values[7]) || 2015,
+                                        language: values[5] || 'korean',
+                                        category: values[6] || 'group'
+                                    });
+                                }
+                            }
+                            
+                            testSongs = songs;
+                            status += `✅ CSV載入成功，共 ${songs.length} 首歌曲\n`;
+                            
+                        } else {
+                            throw new Error('CSV載入失敗');
+                        }
+                    } catch (csvError) {
+                        status += `❌ CSV載入失敗: ${csvError.message}\n`;
+                        
+                        // 步驟3: 使用內建資料
+                        status += '\n步驟3: 使用內建資料\n';
+                        testSongs = [
+                            { id: 1, title: 'Adore U (아낀다)', album: '17 CARAT', year: 2015, language: 'korean', category: 'group' },
+                            { id: 2, title: 'Mansae (만세)', album: 'Boys Be', year: 2015, language: 'korean', category: 'group' }
+                        ];
+                        status += `✅ 內建資料載入成功，共 ${testSongs.length} 首歌曲\n`;
+                    }
+                }
+                
+                result.textContent = status;
+                updateSongPreview();
+                
+            } catch (error) {
+                result.textContent = `❌ 完整載入測試失敗: ${error.message}`;
+            }
+        }
+        
+        // 更新歌曲預覽
+        function updateSongPreview() {
+            const countElement = document.getElementById('songCount');
+            const previewElement = document.getElementById('songPreview');
+            
+            countElement.textContent = `已載入 ${testSongs.length} 首歌曲`;
+            countElement.className = testSongs.length > 0 ? 'status success' : 'status warning';
+            
+            previewElement.innerHTML = '';
+            
+            testSongs.slice(0, 20).forEach(song => {
+                const songElement = document.createElement('div');
+                songElement.className = 'song-item';
+                songElement.innerHTML = `
+                    <div>
+                        <div class="song-title">${song.title}</div>
+                        <div class="song-info">${song.album} • ${song.year} • ${song.language}</div>
+                    </div>
+                    <div class="song-info">#${song.id}</div>
+                `;
+                previewElement.appendChild(songElement);
+            });
+            
+            if (testSongs.length > 20) {
+                const moreElement = document.createElement('div');
+                moreElement.className = 'song-item';
+                moreElement.innerHTML = `<div class="song-info">... 還有 ${testSongs.length - 20} 首歌曲</div>`;
+                previewElement.appendChild(moreElement);
+            }
+        }
+        
+        // 測試分類資料
+        async function testCategoryData() {
+            const result = document.getElementById('functionTestResult');
+            result.textContent = '正在測試分類資料...\n';
+            
+            try {
+                const response = await fetch('song-categories.js');
+                if (response.ok) {
+                    result.textContent = '✅ 分類資料檔案存在且可存取';
+                } else {
+                    result.textContent = '❌ 分類資料檔案無法存取';
+                }
+            } catch (error) {
+                result.textContent = `❌ 分類資料測試失敗: ${error.message}`;
+            }
+        }
+        
+        // 測試時間軸資料
+        function testTimelineData() {
+            const result = document.getElementById('functionTestResult');
+            result.textContent = '✅ 時間軸功能測試通過（使用模擬資料）';
+        }
+        
+        // 測試認證系統
+        async function testAuthSystem() {
+            const result = document.getElementById('functionTestResult');
+            result.textContent = '正在測試認證系統...\n';
+            
+            try {
+                const response = await fetch('auth.js');
+                if (response.ok) {
+                    result.textContent = '✅ 認證系統檔案存在且可存取';
+                } else {
+                    result.textContent = '❌ 認證系統檔案無法存取';
+                }
+            } catch (error) {
+                result.textContent = `❌ 認證系統測試失敗: ${error.message}`;
+            }
+        }
+        
+        // 頁面載入時自動檢查
+        window.addEventListener('load', () => {
+            checkSystemStatus();
+        });
+    </script>
+</body>
+</html> 

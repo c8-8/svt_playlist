@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💎 SEVENTEEN 歌曲排名系統</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <!-- 資料載入器 -->
+    <script src="data-loader.js"></script>
+    <!-- 歌曲分類系統 -->
+    <script src="song-categories.js"></script>
+</head>
+<body>
+    <!-- 頂部導航 -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-gem"></i>
+                <h1>SEVENTEEN</h1>
+            </div>
+            <div class="user-info">
+                <span class="welcome-text">歡迎，<span id="username">載入中...</span></span>
+                <div class="user-actions">
+                    <button id="profileBtn" class="icon-btn" title="個人檔案">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <button id="logoutBtn" class="icon-btn" title="登出">
+                        <i class="fas fa-sign-out-alt"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 側邊導航 -->
+    <nav class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3><i class="fas fa-list"></i> 歌曲分類</h3>
+            <button id="sidebarToggle" class="sidebar-toggle">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+        
+        <div class="category-menu">
+            <!-- 視圖模式 -->
+            <div class="category-section">
+                <h4><i class="fas fa-eye"></i> 視圖模式</h4>
+                <ul class="category-list">
+                    <li><a href="#" data-view="ranking" class="active"><i class="fas fa-trophy"></i> 歌曲排名</a></li>
+                    <li><a href="#" data-view="timeline"><i class="fas fa-history"></i> 專輯時間軸</a></li>
+                </ul>
+            </div>
+
+            <!-- 基本分類 -->
+            <div class="category-section">
+                <h4><i class="fas fa-music"></i> 基本分類</h4>
+                <ul class="category-list">
+                    <li><a href="#" data-category="all" class="active">全部歌曲</a></li>
+                    <li><a href="#" data-category="korean">韓文歌</a></li>
+                    <li><a href="#" data-category="japanese">日語歌</a></li>
+                    <li><a href="#" data-category="english-chinese">英文/中文歌</a></li>
+                </ul>
+            </div>
+
+            <!-- 正式小分隊 -->
+            <div class="category-section">
+                <h4><i class="fas fa-users"></i> 正式小分隊</h4>
+                <ul class="category-list">
+                    <li><a href="#" data-category="hiphop-team">Hip-hop Team</a></li>
+                    <li><a href="#" data-category="vocal-team">Vocal Team</a></li>
+                    <li><a href="#" data-category="performance-team">Performance Team</a></li>
+                    <li><a href="#" data-category="bss">BSS (夫碩順)</a></li>
+                    <li><a href="#" data-category="jxw">JxW (淨漢×圓佑)</a></li>
+                    <li><a href="#" data-category="hxw">HxW (HOSHI×WOOZI)</a></li>
+                </ul>
+            </div>
+
+            <!-- 非正式小分隊 -->
+            <div class="category-section">
+                <h4><i class="fas fa-heart"></i> 非正式小分隊</h4>
+                <ul class="category-list">
+                    <li><a href="#" data-category="leaders">SVT Leaders</a></li>
+                    <li><a href="#" data-category="95line">95 Line</a></li>
+                    <li><a href="#" data-category="96line">96 Line</a></li>
+                    <li><a href="#" data-category="97line">97 Line</a></li>
+                    <li><a href="#" data-category="maknae-line">忙內 Line</a></li>
+                    <li><a href="#" data-category="bittersweet">特殊組合 (bittersweet)</a></li>
+                    <li><a href="#" data-category="junhao">俊八 (Jun×The8)</a></li>
+                </ul>
+            </div>
+
+            <!-- 其他分類 -->
+            <div class="category-section">
+                <h4><i class="fas fa-star"></i> 其他分類</h4>
+                <ul class="category-list">
+                    <li><a href="#" data-category="random-units">隨機組合</a></li>
+                    <li><a href="#" data-category="solo-works">13個人作品/OST/feat</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 主要內容區域 -->
+    <main class="main-content">
+        <!-- 移動端導航按鈕 -->
+        <button id="mobileMenuBtn" class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- 內容標題 -->
+        <div class="content-header">
+            <h2 id="categoryTitle">全部歌曲</h2>
+            <div class="content-actions">
+                <button id="shuffleBtn" class="action-btn">
+                    <i class="fas fa-random"></i> 隨機排序
+                </button>
+                <button id="resetBtn" class="action-btn">
+                    <i class="fas fa-undo"></i> 重置排名
+                </button>
+                <button id="saveBtn" class="action-btn primary">
+                    <i class="fas fa-save"></i> 保存排名
+                </button>
+            </div>
+        </div>
+
+        <!-- 排名區域 -->
+        <div class="ranking-container">
+            <!-- S級 -->
+            <div class="tier-row">
+                <div class="tier-label tier-s">S</div>
+                <div class="tier-content" id="tier-s" data-tier="S">
+                    <div class="tier-placeholder">拖拽歌曲到這裡</div>
+                </div>
+            </div>
+
+            <!-- A級 -->
+            <div class="tier-row">
+                <div class="tier-label tier-a">A</div>
+                <div class="tier-content" id="tier-a" data-tier="A">
+                    <div class="tier-placeholder">拖拽歌曲到這裡</div>
+                </div>
+            </div>
+
+            <!-- B級 -->
+            <div class="tier-row">
+                <div class="tier-label tier-b">B</div>
+                <div class="tier-content" id="tier-b" data-tier="B">
+                    <div class="tier-placeholder">拖拽歌曲到這裡</div>
+                </div>
+            </div>
+
+            <!-- C級 -->
+            <div class="tier-row">
+                <div class="tier-label tier-c">C</div>
+                <div class="tier-content" id="tier-c" data-tier="C">
+                    <div class="tier-placeholder">拖拽歌曲到這裡</div>
+                </div>
+            </div>
+
+            <!-- D級 -->
+            <div class="tier-row">
+                <div class="tier-label tier-d">D</div>
+                <div class="tier-content" id="tier-d" data-tier="D">
+                    <div class="tier-placeholder">拖拽歌曲到這裡</div>
+                </div>
+            </div>
+
+            <!-- 歌曲池 -->
+            <div class="tier-row">
+                <div class="tier-label tier-pool">歌曲池</div>
+                <div class="tier-content song-pool" id="song-pool">
+                    <div class="loading-songs">
+                        <i class="fas fa-spinner fa-spin"></i>
+                        <p>載入歌曲中...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 時間軸容器 -->
+        <div class="timeline-container" id="timeline-container" style="display: none;">
+            <div class="timeline-header">
+                <h2><i class="fas fa-history"></i> SEVENTEEN 專輯時間軸</h2>
+            </div>
+            
+            <div class="timeline">
+                <!-- 時間軸內容將由JavaScript動態生成 -->
+                <div class="timeline-loading">
+                    <i class="fas fa-spinner fa-spin"></i>
+                    <p>載入專輯時間軸中...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- 專輯詳情模態框 -->
+    <div id="albumModal" class="modal">
+        <div class="modal-content album-modal-content">
+            <div class="modal-header">
+                <h3 id="albumModalTitle">專輯詳情</h3>
+                <button class="close-btn" onclick="closeAlbumModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="album-details">
+                    <div class="album-cover-large">
+                        <img id="albumCoverLarge" src="" alt="專輯封面">
+                    </div>
+                    <div class="album-info-detailed">
+                        <h4 id="albumTitleDetailed"></h4>
+                        <p><strong>發行日期：</strong><span id="albumReleaseDate"></span></p>
+                        <p><strong>專輯類型：</strong><span id="albumType"></span></p>
+                        <p><strong>語言：</strong><span id="albumLanguage"></span></p>
+                        <div class="album-tracks">
+                            <h5>收錄曲目：</h5>
+                            <ul id="albumTrackList"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 個人檔案模態框 -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3><i class="fas fa-user"></i> 個人檔案</h3>
+                <button class="close-btn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="profile-info">
+                    <div class="profile-item">
+                        <label>使用者名稱：</label>
+                        <span id="profileUsername">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <label>電子郵件：</label>
+                        <span id="profileEmail">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <label>本命：</label>
+                        <span id="profileBias">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <label>註冊時間：</label>
+                        <span id="profileRegisterTime">-</span>
+                    </div>
+                    <div class="profile-item">
+                        <label>排名統計：</label>
+                        <div class="ranking-stats">
+                            <div class="stat-item">
+                                <span class="stat-label">已排名歌曲</span>
+                                <span class="stat-value" id="rankedSongsCount">0</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-label">最愛歌曲 (S級)</span>
+                                <span class="stat-value" id="sTierCount">0</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 載入腳本 -->
+    <script src="auth.js"></script>
+    <script src="data-loader.js"></script>
+    <script src="song-categories.js"></script>
+    <script src="main.js"></script>
+    
+    <!-- 初始化腳本 -->
+    <script>
+        // 等待所有腳本載入完成後初始化應用
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化主應用
+            const app = new MainApp();
+            
+            // 設置全域變數方便偵錯
+            window.svtApp = app;
+            
+            console.log('🎵 SEVENTEEN 歌曲排名系統已啟動！');
+            console.log('💎 Say the name, SEVENTEEN!');
+        });
+    </script>
+</body>
+</html> 

@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>載入診斷</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        
+        .debug-container {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .debug-button {
+            background: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .debug-button:hover {
+            background: #0056b3;
+        }
+        
+        .debug-result {
+            background: #f8f9fa;
+            border: 1px solid #dee2e6;
+            border-radius: 4px;
+            padding: 15px;
+            margin-top: 10px;
+            font-family: monospace;
+            white-space: pre-wrap;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        .success { color: #28a745; }
+        .error { color: #dc3545; }
+        .warning { color: #ffc107; }
+        .info { color: #17a2b8; }
+    </style>
+</head>
+<body>
+    <h1>🔍 SEVENTEEN 歌曲載入診斷</h1>
+    
+    <div class="debug-container">
+        <h2>快速測試</h2>
+        <button class="debug-button" onclick="testQuickLoad()">快速載入測試</button>
+        <button class="debug-button" onclick="testJSONStructure()">JSON結構測試</button>
+        <button class="debug-button" onclick="testCSVParsing()">CSV解析測試</button>
+        <div id="quickResult" class="debug-result"></div>
+    </div>
+    
+    <div class="debug-container">
+        <h2>完整測試</h2>
+        <button class="debug-button" onclick="testFullSystem()">完整系統測試</button>
+        <div id="fullResult" class="debug-result"></div>
+    </div>
+
+    <script>
+        async function testQuickLoad() {
+            const result = document.getElementById('quickResult');
+            result.textContent = '開始快速載入測試...\n';
+            
+            try {
+                // 測試JSON載入
+                console.log('測試JSON載入...');
+                const jsonResponse = await fetch('seventeen-complete-discography.json');
+                const jsonData = await jsonResponse.json();
+                
+                result.textContent += `✅ JSON載入成功\n`;
+                result.textContent += `- 資料大小: ${JSON.stringify(jsonData).length} 字元\n`;
+                result.textContent += `- 包含專輯: ${jsonData.albums ? '是' : '否'}\n`;
+                
+                if (jsonData.albums && jsonData.albums.korean) {
+                    result.textContent += `- 韓語專輯類型: ${Object.keys(jsonData.albums.korean).join(', ')}\n`;
+                }
+                
+                // 測試CSV載入
+                console.log('測試CSV載入...');
+                const csvResponse = await fetch('seventeen-songs-complete.csv');
+                const csvText = await csvResponse.text();
+                const csvLines = csvText.split('\n');
+                
+                result.textContent += `✅ CSV載入成功\n`;
+                result.textContent += `- CSV行數: ${csvLines.length}\n`;
+                result.textContent += `- 標題行: ${csvLines[0]}\n`;
+                
+                result.textContent += `\n✅ 快速載入測試完成！\n`;
+                
+            } catch (error) {
+                result.textContent += `❌ 載入失敗: ${error.message}\n`;
+                console.error('載入錯誤:', error);
+            }
+        }
+        
+        async function testJSONStructure() {
+            const result = document.getElementById('quickResult');
+            result.textContent = '測試JSON結構...\n';
+            
+            try {
+                const response = await fetch('seventeen-complete-discography.json');
+                const data = await response.json();
+                
+                result.textContent += `JSON結構分析:\n`;
+                result.textContent += `- 根層級鍵: ${Object.keys(data).join(', ')}\n`;
+                
+                if (data.albums) {
+                    result.textContent += `- 專輯語言: ${Object.keys(data.albums).join(', ')}\n`;
+                    
+                    if (data.albums.korean) {
+                        result.textContent += `- 韓語專輯類型: ${Object.keys(data.albums.korean).join(', ')}\n`;
+                        
+                        if (data.albums.korean.mini_albums) {
+                            result.textContent += `- 迷你專輯數量: ${data.albums.korean.mini_albums.length}\n`;
+                            result.textContent += `- 第一張迷你專輯: ${data.albums.korean.mini_albums[0].title}\n`;
+                        }
+                    }
+                }
+                
+                // 模擬轉換邏輯
+                const songs = [];
+                let songId = 1;
+                
+                if (data.albums && data.albums.korean && data.albums.korean.mini_albums) {
+                    data.albums.korean.mini_albums.forEach(album => {
+                        songs.push({
+                            id: songId++,
+                            title: `${album.title} - 主打歌`,
+                            album: album.title,
+                            year: parseInt(album.release_date.split('-')[0]),
+                            language: 'korean',
+                            category: 'group'
+                        });
+                    });
+                }
+                
+                result.textContent += `\n轉換結果:\n`;
+                result.textContent += `- 轉換歌曲數: ${songs.length}\n`;
+                if (songs.length > 0) {
+                    result.textContent += `- 第一首歌: ${songs[0].title}\n`;
+                }
+                
+            } catch (error) {
+                result.textContent += `❌ JSON結構測試失敗: ${error.message}\n`;
+            }
+        }
+        
+        async function testCSVParsing() {
+            const result = document.getElementById('quickResult');
+            result.textContent = '測試CSV解析...\n';
+            
+            try {
+                const response = await fetch('seventeen-songs-complete.csv');
+                const csvText = await response.text();
+                const lines = csvText.split('\n');
+                
+                result.textContent += `CSV基本資訊:\n`;
+                result.textContent += `- 總行數: ${lines.length}\n`;
+                result.textContent += `- 標題行: ${lines[0]}\n`;
+                
+                const headers = lines[0].split(',');
+                result.textContent += `- 欄位數: ${headers.length}\n`;
+                result.textContent += `- 欄位名稱: ${headers.join(', ')}\n`;
+                
+                // 解析前5行
+                const songs = [];
+                for (let i = 1; i <= Math.min(5, lines.length - 1); i++) {
+                    if (lines[i].trim()) {
+                        const values = lines[i].split(',');
+                        songs.push({
+                            id: values[0],
+                            title: values[1],
+                            language: values[5],
+                            album: values[8]
+                        });
+                    }
+                }
+                
+                result.textContent += `\n前5首歌曲:\n`;
+                songs.forEach(song => {
+                    result.textContent += `- ${song.title} (${song.language}, ${song.album})\n`;
+                });
+                
+            } catch (error) {
+                result.textContent += `❌ CSV解析測試失敗: ${error.message}\n`;
+            }
+        }
+        
+        async function testFullSystem() {
+            const result = document.getElementById('fullResult');
+            result.textContent = '開始完整系統測試...\n';
+            
+            try {
+                // 模擬MainApp的載入邏輯
+                result.textContent += '步驟1: 載入JSON資料\n';
+                const jsonResponse = await fetch('seventeen-complete-discography.json');
+                const discographyData = await jsonResponse.json();
+                
+                result.textContent += '步驟2: 轉換歌曲資料\n';
+                const songs = convertDiscographyToSongs(discographyData);
+                
+                result.textContent += `步驟3: 載入完成\n`;
+                result.textContent += `- 成功載入 ${songs.length} 首歌曲\n`;
+                
+                if (songs.length > 0) {
+                    result.textContent += `\n歌曲範例:\n`;
+                    songs.slice(0, 10).forEach(song => {
+                        result.textContent += `- ${song.title} (${song.album}, ${song.year})\n`;
+                    });
+                }
+                
+                result.textContent += `\n✅ 完整系統測試成功！\n`;
+                
+            } catch (error) {
+                result.textContent += `❌ 完整系統測試失敗: ${error.message}\n`;
+                console.error('系統測試錯誤:', error);
+            }
+        }
+        
+        // 簡化的轉換函數
+        function convertDiscographyToSongs(discographyData) {
+            const songs = [];
+            let songId = 1;
+            
+            // 已知的專輯歌曲對應表（簡化版）
+            const knownTracks = {
+                '17 CARAT': ['Adore U (아낀다)', 'Shining Diamond'],
+                'BOYS BE': ['Mansae (만세)', 'Fronting'],
+                'Love & Letter': ['Pretty U (예쁘다)', 'Chuck'],
+                'Going Seventeen': ['BOOMBOOM (붐붐)', 'Thinkin\' About You'],
+                'Al1': ['Don\'t Wanna Cry (울고 싶지 않아)', 'HIGHLIGHT']
+            };
+            
+            if (discographyData.albums && discographyData.albums.korean) {
+                const koreanAlbums = discographyData.albums.korean;
+                
+                if (koreanAlbums.mini_albums) {
+                    koreanAlbums.mini_albums.forEach(album => {
+                        const albumTracks = knownTracks[album.title];
+                        
+                        if (albumTracks) {
+                            albumTracks.forEach(trackTitle => {
+                                songs.push({
+                                    id: songId++,
+                                    title: trackTitle,
+                                    album: album.title,
+                                    year: parseInt(album.release_date.split('-')[0]),
+                                    language: 'korean',
+                                    category: 'group'
+                                });
+                            });
+                        }
+                    });
+                }
+            }
+            
+            return songs;
+        }
+        
+        // 頁面載入時自動執行快速測試
+        window.addEventListener('load', () => {
+            console.log('診斷頁面已載入');
+            testQuickLoad();
+        });
+    </script>
+</body>
+</html> 

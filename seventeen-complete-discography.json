@@ -1,0 +1,1096 @@
+{
+  "metadata": {
+    "group": "SEVENTEEN",
+    "debut_year": 2015,
+    "last_updated": "2024-12-19",
+    "total_albums": 45,
+    "languages": ["korean", "japanese", "english", "chinese"],
+    "categories": {
+      "group": "團體歌曲",
+      "subunit": "小分隊歌曲", 
+      "feat": "合作歌曲",
+      "ost": "原聲帶"
+    }
+  },
+  "albums": {
+    "korean": {
+      "studio_albums": [
+        {
+          "id": "love_letter",
+          "title": "Love & Letter",
+          "type": "Studio Album",
+          "release_date": "2016-04-25",
+          "era": "rising",
+          "tracks": 13,
+          "repackage": "Love & Letter (Repackage)"
+        },
+        {
+          "id": "love_letter_repackage",
+          "title": "Love & Letter (Repackage)",
+          "type": "Repackage Album",
+          "release_date": "2016-07-04",
+          "era": "rising",
+          "tracks": 17
+        },
+        {
+          "id": "teen_age",
+          "title": "TEEN, AGE",
+          "type": "Studio Album",
+          "release_date": "2017-11-06",
+          "era": "peak",
+          "tracks": 13
+        },
+        {
+          "id": "an_ode",
+          "title": "An Ode",
+          "type": "Studio Album",
+          "release_date": "2019-09-16",
+          "era": "peak",
+          "tracks": 11
+        },
+        {
+          "id": "face_the_sun",
+          "title": "Face the Sun",
+          "type": "Studio Album",
+          "release_date": "2022-05-27",
+          "era": "peak",
+          "tracks": 9,
+          "repackage": "SECTOR 17"
+        },
+        {
+          "id": "sector_17",
+          "title": "SECTOR 17",
+          "type": "Repackage Album",
+          "release_date": "2022-07-18",
+          "era": "peak",
+          "tracks": 13
+        },
+        {
+          "id": "happy_burstday",
+          "title": "HAPPY BURSTDAY",
+          "type": "Studio Album",
+          "release_date": "2025-5-26",
+          "era": "peak",
+          "tracks": 16
+        }
+      ],
+      "mini_albums": [
+        {
+          "id": "17_carat",
+          "title": "17 CARAT",
+          "type": "Mini Album",
+          "release_date": "2015-05-29",
+          "era": "debut",
+          "tracks": 5
+        },
+        {
+          "id": "boys_be",
+          "title": "BOYS BE",
+          "type": "Mini Album",
+          "release_date": "2015-09-10",
+          "era": "rookie",
+          "tracks": 6
+        },
+        {
+          "id": "going_seventeen",
+          "title": "Going Seventeen",
+          "type": "Mini Album",
+          "release_date": "2016-12-05",
+          "era": "growth",
+          "tracks": 8
+        },
+        {
+          "id": "al1",
+          "title": "Al1",
+          "type": "Mini Album",
+          "release_date": "2017-05-22",
+          "era": "breakthrough",
+          "tracks": 7
+        },
+        {
+          "id": "you_make_my_day",
+          "title": "YOU MAKE MY DAY",
+          "type": "Mini Album",
+          "release_date": "2018-07-16",
+          "era": "peak",
+          "tracks": 6
+        },
+        {
+          "id": "you_made_my_dawn",
+          "title": "YOU MADE MY DAWN",
+          "type": "Mini Album",
+          "release_date": "2019-01-21",
+          "era": "peak",
+          "tracks": 7
+        },
+        {
+          "id": "henggarae",
+          "title": "Heng:garæ",
+          "type": "Mini Album",
+          "release_date": "2020-06-22",
+          "era": "peak",
+          "tracks": 6
+        },
+        {
+          "id": "your_choice",
+          "title": "Your Choice",
+          "type": "Mini Album",
+          "release_date": "2021-06-18",
+          "era": "peak",
+          "tracks": 6
+        },
+        {
+          "id": "attacca",
+          "title": "Attacca",
+          "type": "Mini Album",
+          "release_date": "2021-10-22",
+          "era": "peak",
+          "tracks": 7
+        },
+        {
+          "id": "fml",
+          "title": "FML",
+          "type": "Mini Album",
+          "release_date": "2023-04-24",
+          "era": "peak",
+          "tracks": 6
+        },
+        {
+          "id": "seventeenth_heaven",
+          "title": "SEVENTEENTH HEAVEN",
+          "type": "Mini Album",
+          "release_date": "2023-10-23",
+          "era": "peak",
+          "tracks": 8
+        },
+        {
+          "id": "spill_the_feels",
+          "title": "SPILL THE FEELS",
+          "type": "Mini Album",
+          "release_date": "2024-10-14",
+          "era": "peak",
+          "tracks": 6
+        }
+      ],
+      "special_albums": [
+        {
+          "id": "directors_cut",
+          "title": "DIRECTOR'S CUT",
+          "type": "Special Album",
+          "release_date": "2018-02-05",
+          "era": "peak",
+          "tracks": 4
+        },
+        {
+          "id": "semicolon",
+          "title": "; [Semicolon]",
+          "type": "Special Album",
+          "release_date": "2020-10-19",
+          "era": "peak",
+          "tracks": 6
+        }
+      ],
+      "compilation_albums": [
+        {
+          "id": "17_is_right_here",
+          "title": "17 IS RIGHT HERE",
+          "type": "Compilation Album",
+          "release_date": "2024-04-29",
+          "era": "peak",
+          "tracks": 33
+        }
+      ],
+      "single_albums": [
+        {
+          "id": "second_wind_bss",
+          "title": "SECOND WIND (BSS)",
+          "type": "Single Album",
+          "release_date": "2023-02-06",
+          "era": "peak",
+          "tracks": 6,
+          "artist": "BSS (SEVENTEEN)"
+        },
+        {
+          "id": "this_man_jxw",
+          "title": "THIS MAN (JxW)",
+          "type": "Single Album",
+          "release_date": "2024-06-17",
+          "era": "peak",
+          "tracks": 3,
+          "artist": "JxW (Jun x Wonwoo)"
+        },
+        {
+          "id": "teleparty_bss",
+          "title": "TELEPARTY (BSS)",
+          "type": "Single Album",
+          "release_date": "2025-1-8",
+          "era": "peak",
+          "tracks": 3,
+          "artist": "BSS (SEVENTEEN)"
+        },
+        {
+          "id": "beam_hxw",
+          "title": "BEAM (HxW)",
+          "type": "Single Album",
+          "release_date": "2025-3-8",
+          "era": "peak",
+          "tracks": 4,
+          "artist": "HxW (Hoshi x Woozi)"
+        }
+      ],
+      "singles": [
+        {
+          "id": "hit_single",
+          "title": "HIT",
+          "type": "Single",
+          "release_date": "2019-08-05",
+          "era": "peak"
+        },
+        {
+          "id": "world_feat",
+          "title": "_WORLD (Feat. Anne-Marie)",
+          "type": "Single",
+          "release_date": "2022-07-18",
+          "era": "peak"
+        }
+      ]
+    },
+    "japanese": {
+      "studio_albums": [],
+      "mini_albums": [
+        {
+          "id": "we_make_you",
+          "title": "WE MAKE YOU",
+          "type": "Mini Album",
+          "release_date": "2018-05-30",
+          "era": "peak",
+          "tracks": 5
+        },
+        {
+          "id": "24h",
+          "title": "24H",
+          "type": "Mini Album",
+          "release_date": "2020-09-09",
+          "era": "peak",
+          "tracks": 6
+        },
+        {
+          "id": "dream",
+          "title": "DREAM",
+          "type": "Mini Album",
+          "release_date": "2022-05-18",
+          "era": "peak",
+          "tracks": 6
+        }
+      ],
+      "compilation_albums": [
+        {
+          "id": "17_hits",
+          "title": "17 Hits",
+          "type": "Compilation Album",
+          "release_date": "2016-12-07",
+          "era": "growth",
+          "tracks": 17
+        },
+        {
+          "id": "always_yours",
+          "title": "ALWAYS YOURS",
+          "type": "Compilation Album",
+          "release_date": "2023-08-23",
+          "era": "peak",
+          "tracks": 15
+        }
+      ],
+      "single_albums": [
+        {
+          "id": "happy_ending",
+          "title": "Happy Ending",
+          "type": "Single Album",
+          "release_date": "2019-06-19",
+          "era": "peak",
+          "tracks": 3
+        },
+        {
+          "id": "fallin_flower",
+          "title": "Maiochiruhanabira (Fallin' Flower)",
+          "type": "Single Album",
+          "release_date": "2020-04-01",
+          "era": "peak",
+          "tracks": 3
+        },
+        {
+          "id": "not_alone",
+          "title": "Hitorijanai (Not Alone)",
+          "type": "Single Album",
+          "release_date": "2021-04-21",
+          "era": "peak",
+          "tracks": 3
+        },
+        {
+          "id": "power_of_love",
+          "title": "Ainochikara (Power of Love)",
+          "type": "Single Album",
+          "release_date": "2021-09-29",
+          "era": "peak",
+          "tracks": 3
+        },
+        {
+          "id": "shohikigen",
+          "title": "Shohikigen",
+          "type": "Single Album",
+          "release_date": "2024-05-15",
+          "era": "peak",
+          "tracks": 3
+        }
+      ],
+      "singles": []
+    },
+    "english": {
+      "singles": [
+        {
+          "id": "darling",
+          "title": "Darl+ing",
+          "type": "Single",
+          "release_date": "2022-04-15",
+          "era": "peak"
+        }
+      ]
+    },
+    "chinese": {
+      "single_albums": [
+        {
+          "id": "chinese_single_album",
+          "title": "TBA",
+          "type": "Single Album",
+          "release_date": "2025-TBA",
+          "era": "peak",
+          "tracks": "TBA"
+        }
+      ],
+      "singles": [
+        {
+          "id": "meaning_of_meeting",
+          "title": "相遇的意義",
+          "type": "Single",
+          "release_date": "2024-TBA",
+          "era": "peak"
+        }
+      ],
+      "korean_covers": [
+        {
+          "id": "oh_my_chinese",
+          "title": "怎麼辦 (Oh My!)",
+          "type": "Korean Cover",
+          "release_date": "2018-TBA",
+          "era": "peak",
+          "original": "Oh My!"
+        },
+        {
+          "id": "home_chinese",
+          "title": "家 (Home)",
+          "type": "Korean Cover",
+          "release_date": "2019-TBA",
+          "era": "peak",
+          "original": "Home"
+        }
+      ]
+    }
+  },
+  "eras": {
+    "debut": {
+      "name": "出道期",
+      "years": "2015",
+      "color": "#FFB6C1",
+      "description": "初出茅廬的青澀時期",
+      "key_albums": ["17 CARAT"]
+    },
+    "rookie": {
+      "name": "新人期", 
+      "years": "2015-2016",
+      "color": "#DDA0DD",
+      "description": "逐漸嶄露頭角",
+      "key_albums": ["BOYS BE"]
+    },
+    "rising": {
+      "name": "上升期",
+      "years": "2016",
+      "color": "#98FB98", 
+      "description": "人氣急速上升",
+      "key_albums": ["Love & Letter", "Love & Letter (Repackage)"]
+    },
+    "growth": {
+      "name": "成長期",
+      "years": "2016-2017",
+      "color": "#87CEEB",
+      "description": "音樂風格多元化",
+      "key_albums": ["Going Seventeen", "17 Hits"]
+    },
+    "breakthrough": {
+      "name": "突破期",
+      "years": "2017",
+      "color": "#F0E68C",
+      "description": "奠定地位的重要時期",
+      "key_albums": ["Al1"]
+    },
+    "peak": {
+      "name": "巔峰期",
+      "years": "2017-2025",
+      "color": "#FFA07A",
+      "description": "全球影響力擴大，持續創新",
+      "key_albums": ["TEEN, AGE", "Face the Sun", "SEVENTEENTH HEAVEN", "SPILL THE FEELS"]
+    }
+  },
+  "statistics": {
+    "total_korean_albums": 28,
+    "total_japanese_albums": 8,
+    "total_english_releases": 1,
+    "total_chinese_releases": 4,
+    "debut_to_latest": "2015-2025",
+    "most_productive_year": "2021",
+    "languages_count": 4,
+    "subunit_releases": 4
+  },
+  "song_database": {
+    "korean_songs": [
+      {
+        "id": "adore_u",
+        "title": "Adore U",
+        "korean_title": "아낀다",
+        "album": "17 CARAT",
+        "year": 2015,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "mansae",
+        "title": "Mansae",
+        "korean_title": "만세",
+        "album": "BOYS BE",
+        "year": 2015,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "pretty_u",
+        "title": "Pretty U",
+        "korean_title": "예쁘다",
+        "album": "Love & Letter",
+        "year": 2016,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "very_nice",
+        "title": "Very Nice",
+        "korean_title": "아주 NICE",
+        "album": "Love & Letter (Repackage)",
+        "year": 2016,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "boomboom",
+        "title": "BOOMBOOM",
+        "korean_title": "붐붐",
+        "album": "Going Seventeen",
+        "year": 2016,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "dont_wanna_cry",
+        "title": "Don't Wanna Cry",
+        "korean_title": "울고 싶지 않아",
+        "album": "Al1",
+        "year": 2017,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "clap",
+        "title": "Clap",
+        "korean_title": "박수",
+        "album": "Teen, AGE",
+        "year": 2017,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "thanks",
+        "title": "Thanks",
+        "korean_title": "고맙다",
+        "album": "Director's Cut",
+        "year": 2018,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "oh_my",
+        "title": "Oh My!",
+        "korean_title": "어쩌나",
+        "album": "YOU MAKE MY DAY",
+        "year": 2018,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "home",
+        "title": "Home",
+        "korean_title": "집",
+        "album": "YOU MADE MY DAWN",
+        "year": 2019,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "hit",
+        "title": "HIT",
+        "korean_title": "HIT",
+        "album": "Single",
+        "year": 2019,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "fear",
+        "title": "Fear",
+        "korean_title": "독 : Fear",
+        "album": "An Ode",
+        "year": 2019,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "left_right",
+        "title": "Left & Right",
+        "korean_title": "Left & Right",
+        "album": "Heng:garæ",
+        "year": 2020,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "home_run",
+        "title": "HOME;RUN",
+        "korean_title": "HOME;RUN",
+        "album": "; [Semicolon]",
+        "year": 2020,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "ready_to_love",
+        "title": "Ready to love",
+        "korean_title": "Ready to love",
+        "album": "Your Choice",
+        "year": 2021,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "rock_with_you",
+        "title": "Rock with you",
+        "korean_title": "Rock with you",
+        "album": "Attacca",
+        "year": 2021,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "hot",
+        "title": "HOT",
+        "korean_title": "HOT",
+        "album": "Face the Sun",
+        "year": 2022,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "_world",
+        "title": "_WORLD",
+        "korean_title": "_WORLD",
+        "album": "SECTOR 17",
+        "year": 2022,
+        "category": "collaboration",
+        "is_title_track": false,
+        "unit_members": [],
+        "language": "korean",
+        "featuring": "Anne-Marie"
+      },
+      {
+        "id": "god_of_music",
+        "title": "God of Music",
+        "korean_title": "음악의 신",
+        "album": "SEVENTEENTH HEAVEN",
+        "year": 2023,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "love_money_fame",
+        "title": "LOVE, MONEY, FAME",
+        "korean_title": "LOVE, MONEY, FAME",
+        "album": "SPILL THE FEELS",
+        "year": 2024,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "korean"
+      },
+      {
+        "id": "hbd_group",
+        "title": "HBD",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "group",
+        "is_title_track": true,
+        "language": "korean"
+      },
+      {
+        "id": "thunder_group",
+        "title": "THUNDER",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "group",
+        "is_title_track": false,
+        "language": "korean"
+      },
+      {
+        "id": "bad_influence_group",
+        "title": "Bad Influence (Prod. by Pharrell Williams)",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "group",
+        "is_title_track": false,
+        "language": "korean"
+      },
+      {
+        "id": "skyfall_the8",
+        "title": "Skyfall",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "THE 8 Solo",
+        "language": "korean"
+      },
+      {
+        "id": "fortunate_change_joshua",
+        "title": "Fortunate Change",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "JOSHUA Solo",
+        "language": "korean"
+      },
+      {
+        "id": "99_9_wonwoo",
+        "title": "99.9%",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "WONWOO Solo",
+        "language": "korean"
+      },
+      {
+        "id": "raindrops_seungkwan",
+        "title": "Raindrops",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "SEUNGKWAN Solo",
+        "language": "korean"
+      },
+      {
+        "id": "damage_hoshi",
+        "title": "Damage (feat. Timbaland)",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "HOSHI Solo",
+        "language": "korean",
+        "featuring": "Timbaland"
+      },
+      {
+        "id": "shake_it_off_mingyu",
+        "title": "Shake It Off",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "MINGYU Solo",
+        "language": "korean"
+      },
+      {
+        "id": "happy_virus_dk",
+        "title": "Happy Virus",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "DK Solo",
+        "language": "korean"
+      },
+      {
+        "id": "destiny_woozi",
+        "title": "Destiny",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "WOOZI Solo",
+        "language": "korean"
+      },
+      {
+        "id": "shining_star_vernon",
+        "title": "Shining Star",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "Vernon Solo",
+        "language": "korean"
+      },
+      {
+        "id": "gemini_jun",
+        "title": "Gemini",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "JUN Solo",
+        "language": "korean"
+      },
+      {
+        "id": "trigger_dino",
+        "title": "Trigger",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "DINO Solo",
+        "language": "korean"
+      },
+      {
+        "id": "coincidence_jeonghan",
+        "title": "Coincidence",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "JEONGHAN Solo",
+        "language": "korean"
+      },
+      {
+        "id": "jungle_scoups",
+        "title": "Jungle",
+        "album": "HAPPY BURSTDAY",
+        "year": 2025,
+        "category": "solo",
+        "unit_name": "S.COUPS Solo",
+        "language": "korean"
+      }
+    ],
+    "japanese_songs": [
+      {
+        "id": "call_call_call",
+        "title": "Call Call Call!",
+        "japanese_title": "Call Call Call!",
+        "album": "We Make You",
+        "year": 2018,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "happy_ending",
+        "title": "Happy Ending",
+        "japanese_title": "Happy Ending",
+        "album": "Happy Ending",
+        "year": 2019,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "fallin_flower",
+        "title": "Fallin' Flower",
+        "japanese_title": "舞い落ちる花びら (Fallin' Flower)",
+        "album": "Maiochiruhanabira (Fallin' Flower)",
+        "year": 2020,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "24h",
+        "title": "24H",
+        "japanese_title": "24H",
+        "album": "24H",
+        "year": 2020,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "not_alone",
+        "title": "Not Alone",
+        "japanese_title": "ひとりじゃない (Not Alone)",
+        "album": "Hitorijanai (Not Alone)",
+        "year": 2021,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "power_of_love",
+        "title": "Power of Love",
+        "japanese_title": "愛の力 (Power of Love)",
+        "album": "Ainochikara (Power of Love)",
+        "year": 2021,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "dream",
+        "title": "DREAM",
+        "japanese_title": "DREAM",
+        "album": "DREAM",
+        "year": 2022,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      },
+      {
+        "id": "shohikigen",
+        "title": "Shohikigen",
+        "japanese_title": "消費期限",
+        "album": "Shohikigen",
+        "year": 2024,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "japanese"
+      }
+    ],
+    "english_songs": [
+      {
+        "id": "darling",
+        "title": "Darl+ing",
+        "english_title": "Darl+ing",
+        "album": "Single",
+        "year": 2022,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "english"
+      }
+    ],
+    "chinese_songs": [
+      {
+        "id": "meaning_of_meeting",
+        "title": "Meaning of Meeting",
+        "chinese_title": "相遇的意義",
+        "album": "Single",
+        "year": 2024,
+        "category": "group",
+        "is_title_track": true,
+        "unit_members": [],
+        "language": "chinese"
+      },
+      {
+        "id": "oh_my_chinese",
+        "title": "Oh My! (Chinese Ver.)",
+        "chinese_title": "怎麼辦 (Oh My!)",
+        "album": "Korean Cover",
+        "year": 2018,
+        "category": "group",
+        "is_title_track": false,
+        "unit_members": [],
+        "language": "chinese",
+        "original_song": "oh_my"
+      },
+      {
+        "id": "home_chinese",
+        "title": "Home (Chinese Ver.)",
+        "chinese_title": "家 (Home)",
+        "album": "Korean Cover",
+        "year": 2019,
+        "category": "group",
+        "is_title_track": false,
+        "unit_members": [],
+        "language": "chinese",
+        "original_song": "home"
+      }
+    ],
+    "subunit_songs": [
+      {
+        "id": "fighting",
+        "title": "Fighting (Feat. Lee Young Ji)",
+        "korean_title": "파이팅 해야지 (Feat. 이영지)",
+        "album": "SECOND WIND",
+        "year": 2023,
+        "category": "subunit",
+        "is_title_track": true,
+        "unit_members": ["DK", "Hoshi", "Seungkwan"],
+        "unit_name": "BSS",
+        "language": "korean",
+        "featuring": "Lee Young Ji"
+      },
+      {
+        "id": "this_man",
+        "title": "THIS MAN",
+        "korean_title": "THIS MAN",
+        "album": "THIS MAN",
+        "year": 2024,
+        "category": "subunit",
+        "is_title_track": true,
+        "unit_members": ["Jun", "Wonwoo"],
+        "unit_name": "JxW",
+        "language": "korean"
+      },
+      {
+        "id": "cbz_bss",
+        "title": "CBZ (Prime time)",
+        "album": "TELEPARTY (BSS)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": true,
+        "unit_members": ["DK", "Hoshi", "Seungkwan"],
+        "unit_name": "BSS",
+        "language": "korean"
+      },
+      {
+        "id": "happy_alone_bss",
+        "title": "Happy Alone",
+        "album": "TELEPARTY (BSS)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": false,
+        "unit_members": ["DK", "Hoshi", "Seungkwan"],
+        "unit_name": "BSS",
+        "language": "korean"
+      },
+      {
+        "id": "love_song_bss",
+        "title": "Love Song",
+        "album": "TELEPARTY (BSS)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": false,
+        "unit_members": ["DK", "Hoshi", "Seungkwan"],
+        "unit_name": "BSS",
+        "language": "korean"
+      },
+      {
+        "id": "echo_hxw",
+        "title": "ECHO! (Prod. WOOZI)",
+        "album": "BEAM (HxW)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": true,
+        "unit_members": ["Hoshi", "Woozi"],
+        "unit_name": "HxW",
+        "language": "korean"
+      },
+      {
+        "id": "96ers_hxw",
+        "title": "96ers",
+        "album": "BEAM (HxW)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": false,
+        "unit_members": ["Hoshi", "Woozi"],
+        "unit_name": "HxW",
+        "language": "korean"
+      },
+      {
+        "id": "stupid_idiot_hxw",
+        "title": "STUPID IDIOT",
+        "album": "BEAM (HxW)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": false,
+        "unit_members": ["Hoshi", "Woozi"],
+        "unit_name": "HxW",
+        "language": "korean"
+      },
+      {
+        "id": "pinocchio_hxw",
+        "title": "PINOCCHIO (feat. So!YoON!)",
+        "album": "BEAM (HxW)",
+        "year": 2025,
+        "category": "subunit",
+        "is_title_track": false,
+        "unit_members": ["Hoshi", "Woozi"],
+        "unit_name": "HxW",
+        "language": "korean",
+        "featuring": "So!YoON!"
+      }
+    ]
+  },
+  "editing_guide": {
+    "how_to_add_new_song": {
+      "step_1": "在對應語言的陣列中新增歌曲物件",
+      "step_2": "填寫所有必要欄位",
+      "step_3": "確保id是唯一的",
+      "required_fields": ["id", "title", "album", "year", "category", "language"],
+      "optional_fields": ["korean_title", "japanese_title", "chinese_title", "english_title", "is_title_track", "unit_members", "unit_name", "featuring", "original_song"]
+    },
+    "categories": {
+      "group": "團體歌曲",
+      "subunit": "小分隊歌曲",
+      "collaboration": "合作歌曲",
+      "ost": "原聲帶",
+      "solo": "個人作品"
+    },
+    "languages": ["korean", "japanese", "english", "chinese"],
+    "example_new_song": {
+      "id": "new_song_2025",
+      "title": "New Song Title",
+      "korean_title": "새로운 노래",
+      "album": "New Album",
+      "year": 2025,
+      "category": "group",
+      "is_title_track": true,
+      "unit_members": [],
+      "language": "korean"
+    }
+  }
+} 

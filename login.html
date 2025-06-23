@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SEVENTEEN 歌曲排名系統 - 登入</title>
+    <link rel="stylesheet" href="login.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="logo">
+                    <i class="fas fa-gem"></i>
+                    <h1>SEVENTEEN</h1>
+                    <p>歌曲排名系統</p>
+                </div>
+            </div>
+
+            <div class="login-form-container">
+                <!-- 登入表單 -->
+                <form id="loginForm" class="auth-form active">
+                    <h2>歡迎回來</h2>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="loginUsername" placeholder="使用者名稱" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="密碼" required>
+                    </div>
+                    <div class="form-options">
+                        <label class="remember-me">
+                            <input type="checkbox" id="rememberMe">
+                            <span>記住我</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="auth-btn">登入</button>
+                    <p class="auth-switch">
+                        還沒有帳號？ <a href="#" id="showRegister">立即註冊</a>
+                    </p>
+                </form>
+
+                <!-- 註冊表單 -->
+                <form id="registerForm" class="auth-form">
+                    <h2>加入我們</h2>
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="registerUsername" placeholder="使用者名稱" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="registerEmail" placeholder="電子郵件" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="registerPassword" placeholder="密碼" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="confirmPassword" placeholder="確認密碼" required>
+                    </div>
+                    <div class="bias-selection">
+                        <label>你的本命是？</label>
+                        <select id="biasSelect">
+                            <option value="">選擇你的本命</option>
+                            <option value="scoups">S.Coups (에스쿱스)</option>
+                            <option value="jeonghan">Jeonghan (정한)</option>
+                            <option value="joshua">Joshua (조슈아)</option>
+                            <option value="jun">Jun (준)</option>
+                            <option value="hoshi">Hoshi (호시)</option>
+                            <option value="wonwoo">Wonwoo (원우)</option>
+                            <option value="woozi">Woozi (우지)</option>
+                            <option value="the8">The8 (디에잇)</option>
+                            <option value="mingyu">Mingyu (민규)</option>
+                            <option value="dk">DK (도겸)</option>
+                            <option value="seungkwan">Seungkwan (승관)</option>
+                            <option value="vernon">Vernon (버논)</option>
+                            <option value="dino">Dino (디노)</option>
+                            <option value="ot13">OT13 (全部都愛)</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="auth-btn">註冊</button>
+                    <p class="auth-switch">
+                        已有帳號？ <a href="#" id="showLogin">立即登入</a>
+                    </p>
+                </form>
+
+                <!-- 訪客模式 -->
+                <div class="guest-mode">
+                    <button id="guestBtn" class="guest-btn">
+                        <i class="fas fa-user-secret"></i>
+                        訪客體驗
+                    </button>
+                    <p class="guest-note">* 訪客模式無法保存排名資料</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 背景裝飾 -->
+        <div class="bg-decoration">
+            <div class="diamond diamond-1"></div>
+            <div class="diamond diamond-2"></div>
+            <div class="diamond diamond-3"></div>
+            <div class="diamond diamond-4"></div>
+        </div>
+    </div>
+
+    <!-- 載入動畫 -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>載入中...</p>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+</body>
+</html> 
