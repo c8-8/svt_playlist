@@ -526,53 +526,67 @@ body {
 }
 
 @media (max-width: 768px) {
-    .header-content {
-        padding: 0 15px;
+    .timeline::before {
+        left: 20px;
     }
     
-    .logo h1 {
-        font-size: 20px;
+    .year-marker {
+        left: 20px;
+        transform: none;
+        top: -15px;
+        font-size: 16px;
     }
     
-    .welcome-text {
-        display: none;
-    }
-    
-    .main-content {
-        padding: 15px;
-    }
-    
-    .content-header {
-        flex-direction: column;
+    /* 強制所有 albums-row 都可以換行 */
+    .albums-row, .albums-row.single-row {
+        margin-left: 40px;
         gap: 15px;
-        align-items: stretch;
+        flex-wrap: wrap !important; /* !important 確保覆蓋 .single-row 的 nowrap */
+        justify-content: flex-start;
     }
     
-    .content-actions {
-        justify-content: center;
-        flex-wrap: wrap;
+    /* 兩欄式佈局 */
+    .album-card {
+        flex-basis: calc(50% - 8px); /* 50% 減去 gap 的一半 */
+        flex-grow: 0;
+        flex-shrink: 1; /* 允許卡片收縮 */
+        height: auto; /* 取消固定高度 */
+        max-width: none; /* 取消桌面版的寬度限制 */
+        padding: 8px;
+        justify-content: flex-start;
+    }
+
+    /* 讓封面保持正方形 */
+    .album-cover {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 8px;
+    }
+
+    .album-cover img {
+        /* object-fit: cover 已經在全域設定，這裡不用動 */
+    }
+
+    .album-info h3 {
+        font-size: 13px;
+        line-height: 1.3;
+    }
+
+    .album-info p {
+        font-size: 11px;
     }
     
-    .tier-row {
+    /* 修正彈出視窗的圖片大小 */
+    .album-details {
         flex-direction: column;
+        align-items: center;
+        text-align: center;
     }
     
-    .tier-label {
-        width: 100%;
-        height: 40px;
-        border-radius: 10px 10px 0 0;
-        font-size: 18px;
-    }
-    
-    .tier-content {
-        border-radius: 0 0 10px 10px;
-        border: 2px dashed rgba(247, 202, 201, 0.3);
-        min-height: 60px;
-    }
-    
-    .song-item {
-        min-width: auto;
-        width: 100%;
+    .album-cover-large img {
+        width: 150px;
+        height: 150px;
     }
 }
 
@@ -747,16 +761,19 @@ body {
 }
 
 .album-cover {
-    margin-bottom: 15px;
-    height: 260px;
+    width: 100%;
+    height: 120px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .album-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .album-info h3 {
