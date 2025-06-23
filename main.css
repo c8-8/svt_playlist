@@ -552,28 +552,38 @@ body {
         flex-shrink: 1;
         height: auto;
         max-width: none;
-        padding: 12px;
-        margin: 8px;
+        padding: 8px;
+        margin: 4px;
+        text-align: left; /* 改為左對齊 */
     }
 
-    /* 讓封面保持正方形 */
+    /* 讓封面保持正方形但縮小 */
     .album-cover {
         height: auto;
         width: 100%;
         aspect-ratio: 1 / 1;
-        margin-bottom: 8px;
+        margin-bottom: 6px;
     }
 
     .album-info h3 {
-        font-size: 12px;
-        line-height: 1.3;
+        font-size: 11px;
+        line-height: 1.2;
+        white-space: nowrap; /* 固定標題不換行 */
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .album-info p {
-        font-size: 10px;
+        font-size: 9px;
+        margin-bottom: 4px;
+    }
+
+    .album-type {
+        font-size: 8px;
+        padding: 2px 6px;
     }
     
-    /* 修正彈出視窗的圖片大小 */
+    /* 修正彈出視窗的圖片大小 - 保持置中 */
     .album-details {
         flex-direction: column;
         align-items: center;
@@ -583,6 +593,11 @@ body {
     .album-cover-large img {
         width: 150px;
         height: 150px;
+    }
+    
+    /* 確保彈跳視窗內容置中 */
+    .modal-content {
+        text-align: center;
     }
 }
 
