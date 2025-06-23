@@ -893,6 +893,7 @@ body {
     .album-card {
         max-width: 130px;
         padding: 8px;
+        height: 90px;
     }
 
     .album-cover {
