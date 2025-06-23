@@ -886,16 +886,30 @@ body {
     }
     
     .albums-row {
-        margin-left: 60px;
+        margin-left: 40px;
         justify-content: flex-start;
     }
     
     .album-card {
-        max-width: 200px;
+        max-width: 150px;
+        padding: 10px;
+    }
+
+    .album-cover {
+        height: 150px;
+    }
+
+    .album-info h3 {
+        font-size: 14px;
+    }
+
+    .album-info p {
+        font-size: 12px;
     }
     
     .album-details {
         flex-direction: column;
+        align-items: center;
         text-align: center;
     }
     
