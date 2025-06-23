@@ -891,20 +891,20 @@ body {
     }
     
     .album-card {
-        max-width: 150px;
-        padding: 10px;
+        max-width: 130px;
+        padding: 8px;
     }
 
     .album-cover {
-        height: 150px;
+        height: 130px;
     }
 
     .album-info h3 {
-        font-size: 14px;
+        font-size: 13px;
     }
 
     .album-info p {
-        font-size: 12px;
+        font-size: 11px;
     }
     
     .album-details {
@@ -914,7 +914,7 @@ body {
     }
     
     .album-cover-large img {
-        width: 150px;
-        height: 150px;
+        width: 130px;
+        height: 130px;
     }
 } 
