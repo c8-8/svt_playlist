@@ -540,19 +540,20 @@ body {
     /* 強制所有 albums-row 都可以換行 */
     .albums-row, .albums-row.single-row {
         margin-left: 40px;
-        gap: 12px; /* 減少間距 */
+        gap: 1rem;
         flex-wrap: wrap !important; /* !important 確保覆蓋 .single-row 的 nowrap */
         justify-content: flex-start;
     }
     
-    /* 三欄式佈局，卡片更小 */
+    /* 兩欄式佈局，保持舒適間距 */
     .album-card {
-        flex-basis: calc(33.333% - 8px); /* 改為三欄佈局 */
+        flex-basis: calc(50% - 2rem);
         flex-grow: 0;
-        flex-shrink: 1; /* 允許卡片收縮 */
-        height: auto; /* 取消固定高度 */
-        max-width: none; /* 取消桌面版的寬度限制 */
-        padding: 6px; /* 減少內邊距 */
+        flex-shrink: 1;
+        height: auto;
+        max-width: none;
+        padding: 12px;
+        margin: 8px;
     }
 
     /* 讓封面保持正方形 */
@@ -652,8 +653,8 @@ body {
 
 /* 時間軸樣式 */
 .timeline-container {
-    padding: 20px;
-    max-width: 1200px;
+    padding: 40px 20px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -697,7 +698,8 @@ body {
 
 .timeline-year {
     position: relative;
-    margin-bottom: 40px;
+    margin-bottom: 60px;
+    margin-top: 60px;
 }
 
 .year-marker {
@@ -706,20 +708,20 @@ body {
     transform: translateX(-50%);
     background: linear-gradient(135deg, #F7CAC9, #92A8D1);
     color: white;
-    padding: 10px 20px;
-    border-radius: 25px;
+    padding: 12px 24px;
+    border-radius: 30px;
     font-weight: bold;
-    font-size: 18px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    font-size: 20px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
     z-index: 2;
-    top: -15px;
+    top: -30px;
 }
 
 .albums-row {
     display: flex;
     justify-content: center;
-    gap: 25px;
-    margin-top: 60px;
+    gap: 1rem;
+    margin-top: 80px;
     flex-wrap: wrap;
 }
 
@@ -748,11 +750,12 @@ body {
 .album-card {
     background: white;
     border-radius: 15px;
-    padding: 15px;
+    padding: 20px;
+    margin: 16px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 260px;
+    width: 280px;
     text-align: center;
     flex-shrink: 0;
     display: flex;
