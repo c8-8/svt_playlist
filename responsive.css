@@ -1,7 +1,31 @@
 /* 響應式設計樣式 */
 
+/* 大平板/小桌機尺寸 */
+@media (max-width: 1200px) and (min-width: 1025px) {
+    .album-card {
+        width: 200px !important;
+        height: 280px !important;
+        padding: 15px;
+        margin: 10px;
+    }
+    
+    .album-cover {
+        height: 170px !important;
+        width: 170px !important;
+        margin: 0 auto 10px auto;
+    }
+    
+    .album-info h3 {
+        font-size: 14px;
+    }
+    
+    .album-info p {
+        font-size: 12px;
+    }
+}
+
 /* 平板尺寸 */
-@media (max-width: 1024px) {
+@media (max-width: 1024px) and (min-width: 769px) {
     .sidebar {
         transform: translateX(-100%);
     }
