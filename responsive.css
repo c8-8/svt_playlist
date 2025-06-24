@@ -1,0 +1,167 @@
+/* 響應式設計樣式 */
+
+/* 平板尺寸 */
+@media (max-width: 1024px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    
+    .sidebar.open {
+        transform: translateX(0);
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+    
+    .mobile-menu-btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .sidebar-toggle {
+        display: block;
+    }
+    
+    /* 平板專輯卡片統一大小 */
+    .album-card {
+        width: 220px !important;
+        height: 320px !important;
+        padding: 15px;
+        margin: 12px;
+        flex-shrink: 0;
+    }
+    
+    .album-cover {
+        height: 190px !important;
+        width: 190px !important;
+        margin: 0 auto 10px auto;
+    }
+    
+    .album-info h3 {
+        font-size: 14px;
+        line-height: 1.3;
+    }
+    
+    .album-info p {
+        font-size: 12px;
+    }
+    
+    .album-type {
+        font-size: 10px;
+        padding: 3px 8px;
+    }
+    
+    /* 平板時間軸調整 */
+    .albums-row {
+        gap: 15px;
+        justify-content: center;
+    }
+}
+
+/* 手機尺寸 */
+@media (max-width: 768px) {
+    .timeline::before {
+        left: 20px;
+    }
+    
+    .year-marker {
+        left: 20px;
+        transform: none;
+        top: -15px;
+        font-size: 16px;
+    }
+    
+    /* 強制所有 albums-row 都可以換行 */
+    .albums-row, .albums-row.single-row {
+        margin-left: 40px;
+        gap: 1rem;
+        flex-wrap: wrap !important;
+        justify-content: flex-start;
+    }
+    
+    /* 兩欄式佈局，保持舒適間距 */
+    .album-card {
+        flex-basis: calc(50% - 2rem) !important;
+        flex-grow: 0;
+        flex-shrink: 1;
+        height: auto;
+        max-width: none !important;
+        padding: 8px !important;
+        margin: 4px !important;
+        text-align: left !important;
+        width: auto !important;
+    }
+
+    /* 讓封面保持正方形但縮小 */
+    .album-cover {
+        height: auto;
+        width: 100%;
+        aspect-ratio: 1 / 1;
+        margin-bottom: 6px;
+    }
+
+    .album-info h3 {
+        font-size: 11px;
+        line-height: 1.2;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .album-info p {
+        font-size: 9px;
+        margin-bottom: 4px;
+    }
+
+    .album-type {
+        font-size: 8px;
+        padding: 2px 6px;
+    }
+    
+    /* 修正彈出視窗的圖片大小 - 保持置中 */
+    .album-details {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    
+    .album-cover-large img {
+        width: 150px;
+        height: 150px;
+    }
+    
+    /* 確保彈跳視窗內容置中 */
+    .modal-content {
+        text-align: center;
+    }
+}
+
+/* 小手機尺寸 */
+@media (max-width: 480px) {
+    .action-btn {
+        padding: 8px 12px;
+        font-size: 12px;
+    }
+    
+    .action-btn span {
+        display: none;
+    }
+    
+    .modal-content {
+        width: 95%;
+        margin: 10px;
+    }
+    
+    .ranking-stats {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    /* 單欄式佈局 */
+    .album-card {
+        flex-basis: 100% !important;
+        max-width: none !important;
+    }
+} 
