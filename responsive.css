@@ -26,31 +26,31 @@
     
     /* 平板專輯卡片統一大小 */
     .album-card {
-        width: 200px !important;
-        height: 220px !important;
-        padding: 15px;
-        margin: 12px;
+        width: 150px !important;
+        height: 200px !important;
+        padding: 10px;
+        margin: 8px;
         flex-shrink: 0;
     }
     
     .album-cover {
-        height: 150px !important;
-        width:150px !important;
-        margin: 0 auto 10px auto;
+        height: 120px !important;
+        width: 120px !important;
+        margin: 0 auto 8px auto;
     }
     
     .album-info h3 {
-        font-size: 14px;
-        line-height: 1.3;
+        font-size: 12px;
+        line-height: 1.2;
     }
     
     .album-info p {
-        font-size: 12px;
+        font-size: 10px;
     }
     
     .album-type {
-        font-size: 10px;
-        padding: 3px 8px;
+        font-size: 9px;
+        padding: 2px 6px;
     }
     
     /* 平板時間軸調整 */
