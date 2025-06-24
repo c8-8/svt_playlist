@@ -26,7 +26,7 @@
     
     /* 平板專輯卡片統一大小 */
     .album-card {
-        width: 220px !important;
+        width: 200px !important;
         height: 220px !important;
         padding: 15px;
         margin: 12px;
@@ -34,8 +34,8 @@
     }
     
     .album-cover {
-        height: 190px !important;
-        width: 190px !important;
+        height: 150px !important;
+        width:150px !important;
         margin: 0 auto 10px auto;
     }
     
